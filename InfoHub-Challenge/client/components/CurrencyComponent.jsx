@@ -7,7 +7,7 @@ const CurrencyComponent = () => {
   const [amount, setAmount] = useState(1);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/currency?amount=${amount}`)
+    axios.get(`https://infohub-sakk.onrender.com/api/currency?amount=${amount}`)
       .then(response => setCurrency(response.data))
       .catch(error => console.log("Error fetching currency data:", error));
   }, [amount]);

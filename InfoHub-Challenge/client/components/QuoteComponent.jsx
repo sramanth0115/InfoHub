@@ -7,7 +7,7 @@ const QuoteComponent = () => {
 
   useEffect(() => {
     const fetchQuote = () => {
-      axios.get("http://localhost:3001/api/quote")
+      axios.get("https://infohub-sakk.onrender.com/api/quote")
         .then(response => setQuote(response.data))
         .catch(error => console.log("Error fetching quote:", error));
     };

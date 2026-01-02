@@ -7,7 +7,7 @@ const WeatherComponent = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:3001/api/weather")
+    axios.get("https://infohub-sakk.onrender.com/api/weather")
       .then(response => setWeather(response.data))
       .catch(error => console.log("Error fetching weather:", error));
   }, []);
