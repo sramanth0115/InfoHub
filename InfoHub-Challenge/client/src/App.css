@@ -1,23 +1,144 @@
-/* src/app.css */
-.app-container {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f7fb, #e9eff7);
+    color: #1f2933;
+    line-height: 1.6;
+  }
+  
+  .app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .welcome_home {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+  }
+  
+  .quote_card,
+  .weather_card,
+  .currency_card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .quote_card:hover,
+  .weather_card:hover,
+  .currency_card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  }
+  
+  .quote_head,
+  .weather_head,
+  .currency_head {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 16px;
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(
+    to bottom,
+    #2563eb,
+    #38bdf8
+    ) 1;
 
-h1 {
-  text-align: center;
-}
+    padding-left: 10px;
+  }
+  
+  .quote_para {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #374151;
+    margin-bottom: 12px;
+  }
+  
+  .quote_author {
+    text-align: right;
+    font-weight: 500;
+    color: #2563eb;
+  }
+  
+  .quote_loading {
+    color: #6b7280;
+    font-size: 0.95rem;
+  }
+  
+  .weather_para {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #374151;
+  }
+  
+  .weather_span {
+    font-weight: 600;
+    color: #0f172a;
+  }
+  
+  .weather_loading {
+    font-size: 0.95rem;
+    color: #6b7280;
+  }
+  
+  .currency_input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .currency_input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  }
+  
+  .currency_para1 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #374151;
+  }
+  
+  .currency_span {
+    font-weight: 600;
+    color: #16a34a;
+  }
+  
 
-.quote-container, .weather-container, .currency-container {
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-input {
-  margin-top: 10px;
-  padding: 5px;
-  width: 100px;
-}
-
+  @media (max-width: 600px) {
+    .welcome_home {
+      font-size: 1.8rem;
+    }
+  
+    .quote_card,
+    .weather_card,
+    .currency_card {
+      padding: 18px;
+    }
+  
+    .quote_head,
+    .weather_head,
+    .currency_head {
+      font-size: 1.25rem;
+    }
+  }
+  

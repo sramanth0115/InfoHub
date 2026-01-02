@@ -1,9 +1,6 @@
 let path_ = require('path');
 path_ = path_.join(__dirname, "keys.env")
 
-require('dotenv').config({ path: path_ });
-const WEATHERSTACK_API_KEY = process.env.WEATHERSTACK_API_KEY;
-
 const express = require("express");
 const cors = require("cors");
 const fetch = require("node-fetch");
@@ -72,15 +69,18 @@ app.get('/api/currency', async(req, res)=>{
 
 app.get('/api/weather', async(req, res)=>{
     try{
-        let data = await fetch(`http://api.weatherstack.com/current?access_key=${WEATHERSTACK_API_KEY}&query=hyderabad`);
+        let data = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=17.4065&longitude=78.4772&current=temperature_2m,apparent_temperature,is_day,weather_code,cloud_cover&timezone=auto&forecast_days=1`);
         let weather = await data.json();
-        let weather_temp = weather.current.temperature;
-        let weather_descr = weather.current.weather_descriptions[0]
+        let {timezone, current_units, current} = weather;
+        let unit = current_units.temperature_2m
+        let {temperature_2m, time} = current
 
-        if ((!weather_temp) || (!weather_descr)) {
+
+
+        if ((!temperature_2m) || (!time)) {
             return res.status(500).json({ error: "Could not fetch weather data. API is down" });
           }
-        res.json({temperature:weather_temp, condition:weather_descr})
+        res.json({timezone:timezone, time:time, temperature:`${temperature_2m} ${unit}` })
     }
     catch(e){
         res.status(500).json({error: "sra Could not fetch Weather data."});

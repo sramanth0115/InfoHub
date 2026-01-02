@@ -13,9 +13,10 @@ const CurrencyComponent = () => {
   }, [amount]);
 
   return (
-    <div className="card">
-      <h2>Currency Conversion</h2>
-      <input
+    <div className="currency_card">
+      <h2 className="currency_head">Currency Conversion</h2>
+      <input 
+        className="currency_input"
         type="number"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
@@ -23,8 +24,8 @@ const CurrencyComponent = () => {
       />
       {currency ? (
         <div>
-          <p>USD: {currency.usd}</p>
-          <p>EUR: {currency.eur}</p>
+          <p className="currency_para1">USD: <span className="currency_span"> {currency.usd} </span></p>
+          <p className="currency_para1">EUR: ,<span className="currency_span"> {currency.eur} </span> </p>
           
         </div>
       ) : (

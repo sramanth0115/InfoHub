@@ -3,7 +3,7 @@ import React from "react";
 import QuoteComponent from "../components/QuoteComponent";
 import WeatherComponent from "../components/WeatherComponent";
 import CurrencyComponent from "../components/CurrencyComponent";
-
+import './App.css'
 const App = () => {
   return (
     <div className="app-container">

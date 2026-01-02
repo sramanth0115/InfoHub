@@ -20,10 +20,10 @@ const QuoteComponent = () => {
   }, []);
 
   return (
-    <div className="card">
-      <h2>Quote of the Moment</h2>
-      {quote ? <p>"{quote.quote}"</p> : <p>Loading...</p>}
-      <p>- {quote ? quote.author : ""}</p>
+    <div className="quote_card">
+      <h2 className="quote_head">Quote of the Moment</h2>
+      {quote ? <p className="quote_para">"{quote.quote}"</p> : <p className="quote_loading">Loading...</p>}
+      <p className="quote_author">- {quote ? quote.author : ""}</p>
     </div>
   );
 };

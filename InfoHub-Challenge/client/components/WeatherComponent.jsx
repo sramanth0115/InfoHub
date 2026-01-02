@@ -5,18 +5,6 @@ import axios from "axios";
 const WeatherComponent = () => {
   const [weather, setWeather] = useState(null);
 
-  // ✅ Counter State
-  const [count, setCount] = useState(31);
-
-  useEffect(() => {
-    // ✅ Load existing count from localStorage
-    const storedCount = localStorage.getItem("weatherCount");
-    const updatedCount = storedCount ? Number(storedCount) + 1 : 31;
-
-    // ✅ Update count state and localStorage
-    setCount(updatedCount);
-    localStorage.setItem("weatherCount", updatedCount);
-  }, []);
 
   useEffect(() => {
     axios.get("http://localhost:3001/api/weather")
@@ -25,19 +13,19 @@ const WeatherComponent = () => {
   }, []);
 
   return (
-    <div className="card">
-      <h2>Weather in Hyderabad</h2>
+    <div className="weather_card">
+      <h2 className="weather_head">Weather in Hyderabad</h2>
 
       
 
       {weather ? (
         <div>
-          <p>Temperature: {weather.temperature}°C, Condition: {weather.condition}</p>
-          {/* ✅ Display Counter */}
-          <p>API call Limits: {count}/100</p>
+          <p className="weather_para"> Timezone : <span className="weather_span"> {weather.timezone} </span> </p> 
+          <p className="weather_para"> Time : <span className="weather_span"> {weather.time} </span> </p>
+          <p className="weather_para"> Temperature : <span className="weather_span"> {weather.temperature} </span> </p>   
         </div>
       ) : (
-        <p>Loading...</p>
+        <p className="weather_loading">Loading...</p>
       )}
     </div>
   );
