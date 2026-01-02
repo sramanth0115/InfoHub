@@ -87,6 +87,8 @@ app.get('/api/weather', async(req, res)=>{
     }
 })
 
+app.get('/', (req, resp)=>{ resp.send('InfoHub Server is running')})
+
 
 
 
