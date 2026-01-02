@@ -21,7 +21,7 @@ const WeatherComponent = () => {
       {weather ? (
         <div>
           <p className="weather_para"> Timezone : <span className="weather_span"> {weather.timezone} </span> </p> 
-          <p className="weather_para"> Time : <span className="weather_span"> {weather.time} </span> </p>
+          <p className="weather_para"> Time : <span className="weather_span"> {weather.time.replace("T", ", ")} </span> </p>
           <p className="weather_para"> Temperature : <span className="weather_span"> {weather.temperature} </span> </p>   
         </div>
       ) : (
